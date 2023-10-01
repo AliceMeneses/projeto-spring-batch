@@ -1,10 +1,7 @@
-package com.udemy.primeiroprojetospringbatch.config;
+package com.udemy.primeiroprojetospringbatch.step;
 
-import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.function.FunctionItemProcessor;
 import org.springframework.batch.item.support.IteratorItemReader;
@@ -14,16 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class ParOuImparBatchConfig {
-
-    @Bean
-    public Job imprimeParOuImpar(JobBuilderFactory jobBuilderFactory, Step step) {
-        return jobBuilderFactory
-                .get("imprimeParOuImpar")
-                .start(step)
-                .incrementer(new RunIdIncrementer())
-                .build();
-    }
+public class ImprimeParOuImparStepConfig {
 
     @Bean
     public Step imprimeParOuImparStep(StepBuilderFactory stepBuilderFactory) {
